@@ -42,7 +42,7 @@ social:
     - https://github.com/jaroncyna # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/jaron-cyna-67982828a/
+  #  - https://www.linkedin.com/in/jaron-cyna-67982828a/
 
 # Site Verification Settings
 webmaster_verifications:
