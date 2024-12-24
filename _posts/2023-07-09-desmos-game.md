@@ -4,7 +4,10 @@ date: 2023-07-09
 categories: [Math, Programming]
 tags: [desmos, math]     # TAG names should always be lowercase
 author: Jaron
-image: https://i.imghippo.com/files/rVFZ3401bM.png
+image:
+  path: /assets/desmosgame/desmos.png
+  lqip: 
+  alt: 
 ---
 
 
