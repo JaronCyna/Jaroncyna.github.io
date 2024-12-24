@@ -4,6 +4,7 @@ date: 2023-07-09
 categories: [Math, Programming]
 tags: [desmos, math]     # TAG names should always be lowercase
 author: Jaron
+image: https://www.imghippo.com/i/rVFZ3401bM.png
 ---
 
 
@@ -16,3 +17,4 @@ When I started learning about calculus and graphing became a fundamental part of
 The idea behind the game was to make it similar to some of the first games with simple objectives such as pong and galaga. The idea materialized as a character who needed to shield from oncoming projectiles 
 
 # Logical Operators
+In order to make any simple game, there needs to be a way to get an input and an output based on what is currently going on. Desmos provided a unique challenge in finding these as they needed to be defined mathimatically, 
