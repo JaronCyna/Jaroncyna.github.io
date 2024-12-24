@@ -5,7 +5,7 @@ categories: [Math, Programming]
 tags: [desmos, math]     # TAG names should always be lowercase
 author: Jaron
 image:
-  path: /assets/desmosgame/desmos.png
+  path: /assetsweb/desmosgame/desmos.png
   lqip: 
   alt: 
 ---
