@@ -48,6 +48,19 @@ For the main character, the standard formula for an elipse was used, but a chang
 </div>
 {: refdef}
 
+The projectile was made to be a circle which follows a straight line path which slows down quadratically. Then at a certain interval, switches from one side to the other. 
+
+{:refdef: style="text-align: center;"}
+<div class="container">
+  <div class="video">
+    <video controls muted style="border-radius: 4px;" width="100%" preload="auto">
+      <source src="/assetsweb/desmosgame/projectile.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+{: refdef}
+
 # Logical Operators
 In order to make any simple game, there needs to be a way to get an input and an output based on what is currently going on. Desmos provided a unique challenge in finding these as they needed to be defined mathimatically. To learn how making different logical operators within Desmos works, trial and error along with looking through forums was done. As for the actual operators used they were the following:
 
