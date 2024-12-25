@@ -35,6 +35,19 @@ As for the wall that the sheilds the character, it was made using a multivariabl
 </div>
 {: refdef}
 
+For the main character, the standard formula for an elipse was used, but a changing variable was added to create the illusion of spinning.
+
+{:refdef: style="text-align: center;"}
+<div class="container">
+  <div class="video">
+    <video controls muted style="border-radius: 4px;" width="100%" preload="auto">
+      <source src="/assetsweb/desmosgame/charspin.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+{: refdef}
+
 # Logical Operators
 In order to make any simple game, there needs to be a way to get an input and an output based on what is currently going on. Desmos provided a unique challenge in finding these as they needed to be defined mathimatically. To learn how making different logical operators within Desmos works, trial and error along with looking through forums was done. As for the actual operators used they were the following:
 
