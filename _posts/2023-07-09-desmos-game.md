@@ -62,5 +62,34 @@ The projectile was made to be a circle which follows a straight line path which 
 {: refdef}
 
 # Logical Operators
-In order to make any simple game, there needs to be a way to get an input and an output based on what is currently going on. Desmos provided a unique challenge in finding these as they needed to be defined mathimatically. To learn how making different logical operators within Desmos works, trial and error along with looking through forums was done. As for the actual operators used they were the following:
+In order to make any simple game, there needs to be a way to get an input and an output based on what is currently going on. Desmos provided a unique challenge in finding these as they needed to be defined mathimatically. To learn how making different logical operators within Desmos works, trial and error along with looking through forums was done. 
 
+## Calculating Health
+To calculate the current health value of the player, several attributes were employed. The first part that the program checks for is whether a collisoin between the character and the projectile has occured using the $H_{it}$ command. This effectivly acts as an if statement that says if the chracter is touching the projectile **AND** the shield is on the opposite side as the projectile, **Then output -1**, otherwise output 0. Then as seen in line 20, the screen breifly flashes red if $H_{it}$ $= -1$.
+
+Line 16 shows a bound from $0$ to $M_{1}$, which is defined in Line 21. There it says if hit,  breifly increase the bound to allow $H_{ealth}$ to increase, otherswise, it freezes the current value for $H_{ealth}$.
+
+Finally, the entire screen goes red once $H_{ealth} > 0.2$.
+
+![](/assetsweb/desmosgame/healthcode.png)
+## Calculating Score
+The score is calculated in a similar way to the health with the bouunds, however, in this case there is a variable, $k$ which always increases unless $H_{ealth} > 0.2$.
+
+![](/assetsweb/desmosgame/scorecode.png)
+## Other Controls
+When clicked, The $R_{eset}$ button restarts the game. the $f_{lip}$ variable changes the side which the wall resides on.
+
+![](/assetsweb/desmosgame/othercode.png)
+
+# Video and Link To Graph
+{:refdef: style="text-align: center;"}
+<div class="container">
+  <div class="video">
+    <video controls muted style="border-radius: 4px;" width="100%" preload="auto">
+      <source src="/assetsweb/desmosgame/gameclip.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+{: refdef}
+https://www.desmos.com/calculator/ylcjlntutr
