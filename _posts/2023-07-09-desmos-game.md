@@ -4,6 +4,7 @@ date: 2023-07-09
 categories: [Math, Programming]
 tags: [desmos, math]     # TAG names should always be lowercase
 author: Jaron
+math: true
 image:
   path: /assetsweb/desmosgame/desmos.png
   lqip: 
@@ -77,7 +78,7 @@ The score is calculated in a similar way to the health with the bouunds, however
 
 ![](/assetsweb/desmosgame/scorecode.png)
 ## Other Controls
-When clicked, The $R_{eset}$ button restarts the game. the $f_{lip}$ variable changes the side which the wall resides on.
+When clicked, The $$ R_{eset} $$ button restarts the game. the $$ f_{lip} $$ variable changes the side which the wall resides on.
 
 ![](/assetsweb/desmosgame/othercode.png)
 
