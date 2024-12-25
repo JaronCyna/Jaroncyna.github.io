@@ -1,8 +1,8 @@
 ---
 title: Making A Game In Desmos
 date: 2023-07-09 
-categories: [Math, Programming]
-tags: [desmos, math]     # TAG names should always be lowercase
+categories: [Math]
+tags: [desmos, math, programming]     # TAG names should always be lowercase
 author: Jaron
 math: true
 image:
