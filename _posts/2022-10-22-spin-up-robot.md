@@ -4,6 +4,7 @@ date: 2022-10-22
 categories: [Robotics]
 tags: [vex, programming, cad, design]     # TAG names should always be lowercase
 author: Jaron
+math: true
 image:
   path: /assetsweb/vexrobot/spinup-robot.jpg
   lqip: 
@@ -49,12 +50,32 @@ To allow for a more efficent use of motors, the goal of this design was to combi
 ![](/assetsweb/vexrobot/Index.png)
 
 ### Improving the Flywheel
-As said earlier, the dul flywheel system was clunky for several reasons, leading to a single fly wheel to be used for this redesign. The disk is then sent out by compressing it between the flywheel and a C-channel. A smaller wheel would be used to bring the indexed disks.
+As said earlier, the duel flywheel system was clunky for several reasons, leading to a single fly wheel to be used for this redesign which is capable of spinning at 3000RPM. The disk is then sent out by compressing it between the flywheel and a C-channel. A smaller wheel would be used to bring the indexed disks. 
 
 ![](/assetsweb/vexrobot/Flywheel.png)
 
 ## Final Design
+Although the CAD model lead the way for building the tobot, some last minute additions were made to increase the quality and in game performance. The changes are shown below and include changes to the structure motor placements and flywheel gear ratio.
+
+![](/assetsweb/vexrobot/Changes.png)
+
+
+On top of this, we added pnuematics to the robot to fling string onto and across the feild to increase points in the endgame. This was a challenge due to the limited space left on the robot, however, with some zipties and extra support beams it was doable.
+
+![](/assetsweb/vexrobot/pnu.png)
 
 ## Calculations for Program
+As the robot does not have an adjustible angle for the flywheel, the way it would deal with different distances is by changing the velocity it launches the disks at. To do this, kinematics was employed to seehow fast the disk would need to travel at different distances from the net, in order to score.
+$$\vec h = v_{iy}t+\frac{1}{2}\vec gt^2$$
+$$v_{x}=v cos(\theta) $$
+$$v_{y}=v sin(\theta)$$
+$$t= \frac{d_{x}}{v_{x}}\$$
 
-## Final Code
+$$\therefore \vec v = \sqrt{\frac{-gd^2}{2(cos\theta)^2(h-dtan\theta)}}$$
+
+where g is the acceleration due to gravity, d is the horizontal displacement, and theta is the angle the disk is released. This would then output a inital launch velocity at any distance from the goal creating a graph looking like this:
+
+![](/assetsweb/vexrobot/disgraph.png)
+
+## The Code
+
