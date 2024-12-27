@@ -73,7 +73,7 @@ $$ v_{x}=v cos(\theta) $$
 
 $$ v_{y}=v sin(\theta)$$
 
-$$ t= \frac {d_{x}} {v_{x}}\ $$
+$$ t= \frac {d_{x}} {v_{x}} $$
 
 $$\therefore \vec v = \sqrt{\frac{-gd^2}{2(cos\theta)^2(h-dtan\theta)}}$$
 
