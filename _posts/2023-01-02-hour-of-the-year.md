@@ -5,7 +5,7 @@ categories: [Arduino]
 tags: [programming, pcb]     # TAG names should always be lowercase
 author: Jaron
 image:
-  path: /assetsweb/hourofyear/houry.png
+  path: /assetsweb/hourofyear/houry.jpg
   lqip: 
   alt: 
 ---
