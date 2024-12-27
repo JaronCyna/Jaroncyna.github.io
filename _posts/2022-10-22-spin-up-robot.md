@@ -82,4 +82,147 @@ where g is the acceleration due to gravity, d is the horizontal displacement, an
 ![](/assetsweb/vexrobot/disgraph.png)
 
 ## The Code
+Due to the various ways in which the robot may be used, whether it be in a skills run or in tournament, the code used needed to be fine tuned for each part.
 
+### Driver Controller
+To move the robot as the driver, the input from the joystick would be sent to the robot brain and processed as a percent that it should run the motors at. The drivetrain control type used is tank drive.
+
+``` C++
+// void used to take the joy sticks and convert it into movement
+void DriveControl::ControllerDrive(int axis1POS, int axis3POS){
+//create a dead zone to stop accidental movement
+  if(abs(axis3POS) < 5) { axis3POS = 0; }
+  if(abs(axis1POS) < 5) { axis1POS = 0; }
+
+  //make the wheels move
+  LeftDrive.spin(fwd, (axis3POS + axis1POS) * dir, pct);
+  RightDrive.spin(fwd, (axis3POS - axis1POS) * dir, pct);
+}
+
+//variabke used to change direction on button press
+void DriveControl::dirControl() {dir *= -1;}
+```
+
+For the code that runs the flywheel, the flywheel starts gaining speed and then vibrates the controller once at a certain speed to notify the driver that shooting is available.
+
+``` C++
+void FlywheelControl::spinFlywheel(){
+  if (Controller1.ButtonL1.pressing()){
+    Flywheel.setVelocity(500, rpm);
+      if(Flywheel.velocity(rpm) > 400){
+          Controller1.rumble("---");
+      }
+  }
+}
+```
+
+The autonomous used a PID which helps to allivate the accumaliating error and self correct on its path. PIS's are vital in VRC due to the autonomous periods. They ensure the plan pans out as expected, and allow the robot to adapt to slight changes in the environment
+
+```C++
+PIDh::PID LeftDrivePID(0.2, 0.001, 2.0), RightDrivePID(0.3, 0.0, 0.5), turnPID(0.23, 0.0, 0.4); //adjust these values in order of: P, I, D
+double distances = 0, rotations = 0,   angles = 0, turnPower = 0;
+int speed = 100;
+
+int PIDh::PID_run(){
+  while(PID_enable){
+    if(PID_reset){
+      PID_reset = 0;
+      LeftDrive.setPosition(0, degrees);
+      RightDrive.setPosition(0, degrees);
+    }
+  
+    turnPID.desired_position = angles; // Set angles to how far it has turned
+    turnPID.update(IMU.rotation(degrees)); // use IMU to get the degree
+    rotations += turnPID.motorPower; //see how many times the wheel has spun by using the update function from above along with the motorPower
+  
+    LeftDrivePID.desired_position = inchesToDegrees(distances) + rotations;
+    RightDrivePID.desired_position = inchesToDegrees(distances) - rotations;
+
+    LeftDrivePID.update(LeftDrive.position(degrees));
+    RightDrivePID.update(RightDrive.position(degrees));
+
+    LeftDrive.setVelocity(LeftDrivePID.motorPower * speed / 100, percent);
+    RightDrive.setVelocity(RightDrivePID.motorPower * speed / 100, percent);
+
+    LeftDrive.spin(forward);
+    RightDrive.spin(forward);
+
+    task::sleep(20);
+  }
+  return 0;
+}
+
+task shootDisk(){
+  Flywheel.setVelocity(80, percent);
+  for(int i = 0; i < 3; i++){
+
+   if (Flywheel.velocity(rpm) > 450){
+    cylinderIndex.set(true);
+    wait(500, msec);
+    cylinderIndex.set(false);
+   }
+  }
+      Flywheel.stop(coast);
+  return 0;
+}
+
+void PIDh::AutoLeft(){
+  angles -= 90;
+  shootDisk();
+  distances+= 15;
+  wait(400, msec);
+  distances-= 15;
+}
+
+void PIDh::AutoRight(){
+//To be completed
+}
+
+void PIDh::AutoSkills(){
+//To be completed
+}
+```
+
+Then, to pick between the different autonomous in different situations, a UI was shown on the brain which allows for a click to decide on the autonomous that is chosen.
+
+```C++
+void Picker::AutoPick(){
+  // Print 3 rectangles 
+  for (int i = 0; i < rect_amount; i++) {
+    color current_color;
+    // Check if i is AutonNumber to change current_color
+    if (i+1 == AutonNumber) {
+      current_color = selected;
+    } else {
+      current_color = unselected;
+    }
+    Brain.Screen.setPenColor(blue);
+    Brain.Screen.drawRectangle(x1+(spacing*i), y1, x2, y2, blue);
+  }
+// Set font to monoM
+  Brain.Screen.setFont(monoM); 
+
+  while (true) {
+
+    // Selected position
+    int x = Brain.Screen.xPosition(); // X position of finger
+    int y = Brain.Screen.yPosition(); // Y position of finger
+
+    // Check if finger is within vertical selection of the boxes
+    if (y1 < y && y < y1+y2) {
+      for (int i = 0; i < rect_amount; i++) {
+        // Check which x value the finger is within
+        if (x1+(spacing*i) < x && x < (spacing*(i+1))-x1) {
+          AutonNumber = i+1;
+        }
+      }
+    }
+
+    // Print AutonNumber to brain
+    Brain.Screen.setPenColor(selected);
+    Brain.Screen.printAt(5, 30, "Current Auto: %d", AutonNumber); // %d is a formatting character that gets replaced with AutonNumber
+    wait(20, msec);
+    Brain.Screen.clearLine(1);;
+  }
+}
+```
