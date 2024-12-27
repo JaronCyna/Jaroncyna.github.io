@@ -87,7 +87,7 @@ Due to the various ways in which the robot may be used, whether it be in a skill
 ### Driver Controller
 To move the robot as the driver, the input from the joystick would be sent to the robot brain and processed as a percent that it should run the motors at. The drivetrain control type used is tank drive.
 
-``` C++
+```C++
 // void used to take the joy sticks and convert it into movement
 void DriveControl::ControllerDrive(int axis1POS, int axis3POS){
 //create a dead zone to stop accidental movement
@@ -105,7 +105,7 @@ void DriveControl::dirControl() {dir *= -1;}
 
 For the code that runs the flywheel, the flywheel starts gaining speed and then vibrates the controller once at a certain speed to notify the driver that shooting is available.
 
-``` C++
+```c++
 void FlywheelControl::spinFlywheel(){
   if (Controller1.ButtonL1.pressing()){
     Flywheel.setVelocity(500, rpm);
@@ -116,9 +116,11 @@ void FlywheelControl::spinFlywheel(){
 }
 ```
 
+### Auto Control
+
 The autonomous used a PID which helps to allivate the accumaliating error and self correct on its path. PIS's are vital in VRC due to the autonomous periods. They ensure the plan pans out as expected, and allow the robot to adapt to slight changes in the environment
 
-```C++
+```c++
 PIDh::PID LeftDrivePID(0.2, 0.001, 2.0), RightDrivePID(0.3, 0.0, 0.5), turnPID(0.23, 0.0, 0.4); //adjust these values in order of: P, I, D
 double distances = 0, rotations = 0,   angles = 0, turnPower = 0;
 int speed = 100;
@@ -185,7 +187,7 @@ void PIDh::AutoSkills(){
 
 Then, to pick between the different autonomous in different situations, a UI was shown on the brain which allows for a click to decide on the autonomous that is chosen.
 
-```C++
+```c++
 void Picker::AutoPick(){
   // Print 3 rectangles 
   for (int i = 0; i < rect_amount; i++) {
