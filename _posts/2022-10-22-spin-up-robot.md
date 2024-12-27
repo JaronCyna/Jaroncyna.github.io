@@ -66,10 +66,14 @@ On top of this, we added pnuematics to the robot to fling string onto and across
 
 ## Calculations for Program
 As the robot does not have an adjustible angle for the flywheel, the way it would deal with different distances is by changing the velocity it launches the disks at. To do this, kinematics was employed to seehow fast the disk would need to travel at different distances from the net, in order to score.
+
 $$ \vec h = v_{iy}t+\frac{1}{2}\vec gt^2$$
+
 $$ v_{x}=v cos(\theta) $$
+
 $$ v_{y}=v sin(\theta)$$
-$$ t= \frac{d_{x}}{v_{x}}\ $$
+
+$$ t= \frac {d_{x}} {v_{x}}\ $$
 
 $$\therefore \vec v = \sqrt{\frac{-gd^2}{2(cos\theta)^2(h-dtan\theta)}}$$
 
