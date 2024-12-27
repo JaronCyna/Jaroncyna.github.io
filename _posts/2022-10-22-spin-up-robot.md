@@ -87,7 +87,7 @@ Due to the various ways in which the robot may be used, whether it be in a skill
 ### Driver Controller
 To move the robot as the driver, the input from the joystick would be sent to the robot brain and processed as a percent that it should run the motors at. The drivetrain control type used is tank drive.
 
-```C++
+```c++
 // void used to take the joy sticks and convert it into movement
 void DriveControl::ControllerDrive(int axis1POS, int axis3POS){
 //create a dead zone to stop accidental movement
