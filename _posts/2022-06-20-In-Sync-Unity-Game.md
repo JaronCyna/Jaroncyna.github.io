@@ -7,5 +7,5 @@ author: Jaron
 image:
   path: /assetsweb/in-sync/Title .png
   lqip: 
-  alt: 
+  alt: Title screen of a game titled "in-sync"
 ---

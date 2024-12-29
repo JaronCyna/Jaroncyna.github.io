@@ -30,7 +30,7 @@ This schematic was then used to create a PCB in altium. In the future, by using 
 ## The Code
 Although the fully put together system is fully capable of displaying any 4 digit number, the system needs to have a program to convert the time to hours and actually tell it to display that number on the screen. Below is the whole code segment used.
 
-```arduino
+```c
 #include <Wire.h>
 #include <DS1307RTC.h>
 #include <TimeLib.h>
