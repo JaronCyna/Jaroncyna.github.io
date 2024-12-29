@@ -16,5 +16,15 @@ One day in class, I found myself wondering about the number of hours in a month.
 ## Parts Required
 To make this, I used an Arduino to process the time and send information to each component; a Real Time Clck Module (RTC) to give the current time to the Arduino; a 7-segment display which will display the hour (only 4 digits are necessary as there are 8760 hours per year); and a 74HC595 shift register which uses a Serial IN, Parrallel OUT protocol to tell the display to show a certain value.
 
-## Schematics 
+## Schematics and PCB design
 In order to make an outline in how the wiring would work, I made a schematic in Altium which could be followed when wiring the components together with a breadboard.
+
+![](/assetsweb/hourofyear/schem.png)
+
+This schematic was then used to create a PCB in altium.
+
+![](/assetsweb/hourofyear/PCB2d.png)
+
+![](/assetsweb/hourofyear/PCB.png)
+
+## The Code
