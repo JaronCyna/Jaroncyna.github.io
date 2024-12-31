@@ -1,5 +1,5 @@
 ---
-title: The full VEX design process (Spin-Up)
+title: The Full VEX Design Process (Spin-Up)
 date: 2022-10-22 
 categories: [Robotics]
 tags: [vex, programming, cad, design]     # TAG names should always be lowercase

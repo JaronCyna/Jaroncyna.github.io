@@ -93,4 +93,5 @@ When clicked, The $$ R_{eset} $$ button restarts the game. the $$ f_{lip} $$ var
   </div>
 </div>
 {: refdef}
-https://www.desmos.com/calculator/ylcjlntutr
+> You can play the game here: https://www.desmos.com/calculator/ylcjlntutr
+{: .prompt-tip }
