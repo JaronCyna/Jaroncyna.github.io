@@ -134,7 +134,7 @@ When an obstacle is hit, or the player falls out of bounds, a death animation pl
 <div class="container">
   <div class="video">
     <video controls muted style="border-radius: 4px;" width="100%" preload="auto">
-      <source src="/assetsweb/in-sync/Titleanim.mp4" type="video/mp4">
+      <source src="/assetsweb/in-sync/death.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
