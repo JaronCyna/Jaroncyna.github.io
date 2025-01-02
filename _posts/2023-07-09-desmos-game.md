@@ -15,7 +15,7 @@ image:
 
 ## Introduction
 
-When I started learning about calculus and graphing became a fundamental part of my courses, Desmos naturally presented an intuitive and appealing way of displaying functions. I quickly became interested in the different elements that could be modified to varying degrees of succsess. After some exploring, I stumbled across the Desmos Art Competition, which gave me the idea to see if it was possible to program a game within Desmos.
+When I started calculus and graphing became a fundamental part of my courses, Desmos naturally presented an intuitive and appealing way of displaying functions. I quickly became interested in the different elements that could be modified to varying degrees of succsess. After some exploring, I stumbled across the Desmos Art Competition, which gave me the idea to see if it was possible to program a game within Desmos.
 
 ## What Is the Game
 The idea behind the game was to make it similar to some of the first games with simple objectives such as pong and galaga. The idea materialized as a bagel shaped character who needed to shield from oncoming projectiles using a wall.
