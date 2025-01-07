@@ -33,7 +33,7 @@ As shown below, when the game starts, the title screen moves. This is driven by 
 </div>
 {: refdef}
 
-The code for this is as shown and functionsd to move the two pieces towards and away from each other
+The code for this is as shown and functions to move the two pieces towards and away from each other
 
 ```c#
 public float speed;
