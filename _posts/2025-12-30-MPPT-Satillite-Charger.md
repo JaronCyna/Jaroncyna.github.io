@@ -28,7 +28,7 @@ Starting off, it is important to get a high-level overview of how the MPPT will 
 
 ![](/assetsweb/mppt/diagram1.png)
 
-Although this is a good starting point, there are several problems that need to be addressed before moving forward with the design phase of this project. First of all, it would be less reliable to get energy to the STM from the solar panels as there can be times where minimal energy is received. Due to this, it would be smart to power the STM on a stable source like a battery. However, that presents a new problem: what happens when the batteries are dead? How does the STM start up to get the MPPT to start charging the batteries to power the STM? Additionally, there would need to be a way to power the MOSFETs on the MPPT as the STM runs on 3.3V—not nearly enough to power them. 
+Although this is a good starting point, there are several problems that need to be addressed before moving forward with the design phase of this project. First of all, it would be less reliable to get energy to the STM from the solar panels as there can be times where minimal energy is received. Due to this, it would be smart to power the STM on a stable source like a battery. However, that presents a new problem: what happens when the batteries are dead? How does the STM start up to get the MPPT to start charging the batteries to power the STM? Additionally, there would need to be a way to power the MOSFETs on the MPPT as the STM runs on 3.3V. 
 
 So for my next design I made the following changes: I had a buck converter which received power from batteries and solar panels, and an Ideal Diode which would compare and essentially check if the batteries were dead to see what to power the STM32 with. Then there would be a watchdog ensuring space radiation does not cause problems with the STM32, and if it does, it can be reset. Then a gate driver would run from the STM to the MPPT to ensure it can power the MOSFETs.
 
@@ -85,7 +85,7 @@ The required capacitance is a function of the desired voltage ripple ($\Delta V_
 $$C = \frac{I_{out} \cdot D}{f_s \cdot \Delta V_{out}}$$
 
 **Calculation for this Project:**
-If we set a strict target for high-performance signal integrity—such as a **10mV maximum ripple**—we can solve for the required $C$:
+If we set a strict target for high-performance signal integrity such as a **10mV maximum ripple** we can solve for the required $C$:
 
 $$C = \frac{5.4 \cdot 0.0357}{200,000 \cdot 0.010} \approx \mathbf{96.3 \mu F}$$
 
@@ -166,11 +166,13 @@ The **67.93x resolution difference** fundamentally changes the performance of th
 
 * **Reduced "Hunting" Loss:** With the **STM32L4**, a $0.5\%$ step is often too "coarse." If the ideal peak power is at a $3.75\%$ duty cycle, the L4 must oscillate between $3.5\%$ and $4.0\%$, creating a "steady-state ripple" that wastes energy.
 * **True Peak Tracking:** The **STM32G4** can move in increments of $0.0074\%$. This allows the control loop to "lock" onto the exact peak power point with virtually zero oscillation.
-* **Conclusion:** The trade-off of using an extra $63\text{ mW}$ of MCU power (STM32G4) is justified because the precision gains allow the converter to harvest significantly more power from the solar panel—often increasing total system efficiency by several percentage points compared to low-resolution control.
+* **Conclusion:** The trade-off of using an extra $63\text{ mW}$ of MCU power (STM32G4) is justified because the precision gains allow the converter to harvest significantly more power from the solar panel often increasing total system efficiency by several percentage points compared to low-resolution control.
 
 ### STM32 Schematic
 
+{: refdef}
 > Past This point is a work in progress
+{: .prompt-tip }
 
 ## TODO
 - Wire the STM32G4 in KiCAD
