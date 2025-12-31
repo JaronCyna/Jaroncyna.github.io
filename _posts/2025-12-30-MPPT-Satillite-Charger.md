@@ -10,28 +10,29 @@ image:
 ---
 
 ## Introduction
-As the Electrical Power Systems lead on the satellite brance of the Queen's Space Engineering Team, I am always looking for ways to enhance all aspects of the power distribution for the satellite. One of the most vital metrics on a cubesat is efficiency, energy is not an abundant source for them so efficently receiving as much power as possible is vital to have a functioning satellite. Due to this, I was looking into ways to improve efficiency, which is how I found out about Maximum Power Point Tracking or MPPT which is a technology used on variable power sources such as solar panels, to vary apperent impedence at the source and always output the max power regardless of light intensity.
+As the Electrical Power Systems lead on the satellite branch of the Queen's Space Engineering Team, I am always looking for ways to enhance all aspects of the power distribution for the satellite. One of the most vital metrics on a cubesat is efficiency; energy is not an abundant source for them, so efficiently receiving as much power as possible is vital to have a functioning satellite. Due to this, I was looking into ways to improve efficiency, which is how I found out about Maximum Power Point Tracking (MPPT). This technology is used on variable power sources, such as solar panels, to vary apparent impedance at the source and always output the max power regardless of light intensity.
 
 ## Process
-Starting off, it is important to get a high level overview of how the MPPT will function. At a high level, an MPPT is a DC-DC converter with a duty cycle that varies with the variable source to ensure max power at the current state. So my first draft was essentially this in its most bare bones state, the solar panels attached to a DC-DC converter of some sort, connecting to a battery, then a buck converter goes from the solar array to a STM32, which then powers the duty cycle of the MPPT.
+Starting off, it is important to get a high-level overview of how the MPPT will function. At a high level, an MPPT is a DC-DC converter with a duty cycle that varies with the variable source to ensure max power at the current state. So my first draft was essentially this in its most bare-bones state: the solar panels attached to a DC-DC converter of some sort, connecting to a battery, then a buck converter goes from the solar array to a STM32, which then powers the duty cycle of the MPPT.
 
 ![](/assetsweb/mppt/diagram1.png)
 
-Although this is a good staring point, there are several problems that need to be adressed before moving forward with the design phase of this project. First of all, it would be less reliable to get energy to the STM from the solar panels as there can be times where minimal energy is recieved, due to this it would be smart to power the STM on a stable source like a battery, however, that then presents a new problem. What happens when the batteries are dead, how does the STM start up to get the MPPT to start to get the batteries to charge to power the STM. Additionally, there would need to be a way to power the MOSFETs on the MPPT as the STM runs on 3.3V; not nearly enough to power them. SO for my next design I made the following changes, I had a buck converter which recieved power from batteries and solar panels, and an Ideal diode which would compare and essentially check if the batteries were dead to see what to power the STM32 with. then there would be a watchdog ensuring space radiation does not cause problems with the STM32 and if it does, it can be reset. Then a gate driver would run from the STM to the MPPT to ensure it can power the MOSFETs.
+Although this is a good starting point, there are several problems that need to be addressed before moving forward with the design phase of this project. First of all, it would be less reliable to get energy to the STM from the solar panels as there can be times where minimal energy is received. Due to this, it would be smart to power the STM on a stable source like a battery. However, that presents a new problem: what happens when the batteries are dead? How does the STM start up to get the MPPT to start charging the batteries to power the STM? Additionally, there would need to be a way to power the MOSFETs on the MPPT as the STM runs on 3.3V—not nearly enough to power them. 
+
+So for my next design I made the following changes: I had a buck converter which received power from batteries and solar panels, and an Ideal Diode which would compare and essentially check if the batteries were dead to see what to power the STM32 with. Then there would be a watchdog ensuring space radiation does not cause problems with the STM32, and if it does, it can be reset. Then a gate driver would run from the STM to the MPPT to ensure it can power the MOSFETs.
 
 Below is the diagram used in KiCad to guide the design.
+
 ![](/assetsweb/mppt/diagram2.png)
 
 
 ## Design
 
-Now that the general overview of the project has been outlined, the design process should begin. To start, getting the voltage of solar array and battery is important. Although not finalized, I can make a safe assumption that 24 AZUR Space Triple Junction solar panels will be on the satellite along with 8 Lithium-Ion Batteries. After some consideration, I found that I should organize the solar panels in a 3s8p (series parralell) orientation allowing for a VOC of 8.1V and ISC of about 4A and the batteries in a 2s4p orientation allowing for a max charge voltage of 8.4V. I chose these to be close to each other as a DC-DC converter is most efficent for smaller boosts, additionally, the 8.4V is a good middle ground between 3.3V and 12V, which would allow for fairly efficent conversions to other logic levels. 
+Now that the general overview of the project has been outlined, the design process should begin. To start, getting the voltage of the solar array and battery is important. Although not finalized, I can make a safe assumption that 24 AZUR Space Triple Junction solar panels will be on the satellite along with 8 Lithium-Ion Batteries. After some consideration, I found that I should organize the solar panels in a 3s8p (series parallel) orientation allowing for a VOC of 8.1V and ISC of about 4A, and the batteries in a 2s4p orientation allowing for a max charge voltage of 8.4V. I chose these to be close to each other as a DC-DC converter is most efficient for smaller boosts. Additionally, the 8.4V is a good middle ground between 3.3V and 12V, which would allow for fairly efficient conversions to other logic levels. 
 
-Now that this is decided, and it is confirmed that the solar array will never get above the 8.4V max charge of the battery, the MPPT can be chosen to be a boost converter, which can only raise voltage. although a buck boost would add versitillity in the MPPT, the extra space it takes up is likely not worth it for the gains.
+Now that this is decided, and it is confirmed that the solar array will never get above the 8.4V max charge of the battery, the MPPT can be chosen to be a boost converter, which can only raise voltage. Although a buck-boost would add versatility in the MPPT, the extra space it takes up is likely not worth it for the gains.
 
 The following is a completed table of the specs of the MPPT:
-
-<div align="center">
 
 | Parameter | Value |
 | :---: | :---: |
@@ -42,10 +43,8 @@ The following is a completed table of the specs of the MPPT:
 | I_out max | 5.4 A |
 | P_out (max) | 26 W |
 
-</div>
-
 ### Simulation
-Now that all of these specs have been selected, it is advantagous to run a simulation for the proof of concept. To do this, using the standart boost converter equations for inductance and capacitance. *Note: a freq of 200 khz was assumed as that is a typical frequency for MPPT's controlled by STM32's.
+Now that all of these specs have been selected, it is advantageous to run a simulation for the proof of concept. To do this, I used the standard boost converter equations for inductance and capacitance. *Note: a freq of 200 kHz was assumed as that is a typical frequency for MPPTs controlled by STM32s.*
 
 The selection of the Inductor ($L$) and Capacitor ($C$) is not arbitrary; it is driven by the need to maintain **Continuous Conduction Mode (CCM)** and to meet specific **signal integrity** targets.
 
@@ -85,45 +84,39 @@ $$C = \frac{5.4 \cdot 0.0357}{200,000 \cdot 0.010} \approx \mathbf{96.3 \mu F}$$
 
 ### Summary of Selection Criteria
 
-<div align="center">
-
 | Component | Governing Constraint | Threshold | Chosen Value | Engineering Rationale |
 | :--- | :--- | :--- | :--- | :--- |
 | **Inductor** | CCM Boundary | > 0.12 µH | **33 µH** | Stability at light loads. |
 | **Capacitor** | 10mV Ripple Target | > 96 µF | **100 µF** | Signal integrity & DC derating. |
 
-</div>
-
 ### LTSpice Sim
-By putting all of these values into LTSpice, and deciding on a syncrhonus boost converter for the extra efficency gains compared to using a diode, the following plots were made, thus validating choices made. This was done at a min and max voltage with different duty cycles to ensure the voltage could stay the same
+By putting all of these values into LTSpice, and deciding on a synchronous boost converter for the extra efficiency gains compared to using a diode, the following plots were made, thus validating choices made. This was done at a min and max voltage with different duty cycles to ensure the voltage could stay the same.
 
 ![](/assetsweb/mppt/LT1.png)
 ![](/assetsweb/mppt/LT2.png)
 
-After this succsess, starting the design for the PCB schematic was the next step.
+After this success, starting the design for the PCB schematic was the next step.
 
 ## Schematic
 ### Watchdog
-Although Seprate from what I was previously testing, I decided to start the Schematic with the watchdog. For this I decided to use a finite state machine which was controlled by D flip-Flops and a 555 timer clock. The idea behind this was ensuring that this is purley deterministic and hardware based means there is a lower likelyhood of it failing in space. Additionally, it is made out of radiation hardened components. Below is the design process I used, along with the schematic I made for it in KiCad
+Although separate from what I was previously testing, I decided to start the Schematic with the watchdog. For this, I decided to use a finite state machine which was controlled by D Flip-Flops and a 555 timer clock. The idea behind this was ensuring that this is purely deterministic and hardware-based means there is a lower likelihood of it failing in space. Additionally, it is made out of radiation-hardened components. Below is the design process I used, along with the schematic I made for it in KiCad.
 
 ![](/assetsweb/mppt/D_Flip.jpg)
 ![](/assetsweb/mppt/Watchdog.png)
 
 ### MPPT
-Now for the MPPT, Most of the work for this had been done previously, so I mostly just needed to find a gate driver which could drive the MOSFETs and then it was smooth sailing from there. However, I did add voltage sensors using voltge dividers and Current sensors using Shunt resistors.
+Now for the MPPT, most of the work for this had been done previously, so I mostly just needed to find a gate driver which could drive the MOSFETs and then it was smooth sailing from there. However, I did add voltage sensors using voltage dividers and Current sensors using Shunt resistors.
 
 ![](/assetsweb/mppt/MPPT.png)
 
 ### 3.3V Logic
-For powering the STM32, I used a buck converter IC which is capable of keeping a 3.3V output with a large variation of input voltages, and I used an ideal diode to seperate the battery and solar panel but still allow for one to go through regardless of the situation the battery ends up in
+For powering the STM32, I used a buck converter IC which is capable of keeping a 3.3V output with a large variation of input voltages, and I used an ideal diode to separate the battery and solar panel but still allow for one to go through regardless of the situation the battery ends up in.
 
 ![](/assetsweb/mppt/33V.png)
 
 ### STM32
 
-For the STM32, I ended up choosing between the L4 series for its low power and G4 series for its HRTIM which would increase the resolution of the PWM
-
-<div align="center">
+For the STM32, I ended up choosing between the L4 series for its low power and G4 series for its HRTIM which would increase the resolution of the PWM.
 
 | Feature | STM32L4 | STM32G4 |
 | :--- | :---: | :---: |
@@ -132,10 +125,7 @@ For the STM32, I ended up choosing between the L4 series for its low power and G
 | **Wattage (3.3V)** | 26 mW | 89 mW |
 | **Precision (@ 200kHz)** | 200 Steps | 13,586 Steps |
 
-</div>
-
-Due to the incredible extra Precision of the G4 it would get a lot closer to the true max power point, which means that in a near 30W output should offset the extra power consumed, but to prove this the following shows the calculations that justifies this
-
+Due to the incredible extra Precision of the G4, it would get a lot closer to the true max power point, which means that a near 30W output should offset the extra power consumed. To prove this, the following shows the calculations that justify this:
 
 ### Duty Cycle Resolution Calculation
 The resolution is the smallest possible increment in the duty cycle ($D$), calculated as:
@@ -154,14 +144,10 @@ $$\text{Res}_{G4} = \frac{1}{13,586} \approx 0.0000736 = \mathbf{0.00736\%}$$
 
 ### Comparative Analysis
 
-<div align="center">
-
 | Metric | STM32L4 | STM32G4 | Difference/Factor |
 | :--- | :---: | :---: | :---: |
 | **Control Steps (@ 200kHz)** | 200 | 13,586 | **67.93x More Steps** |
 | **Duty Cycle Step Size** | 0.5% | 0.0074% | **67.93x Finer Control** |
-
-</div>
 
 ---
 
@@ -173,13 +159,11 @@ The **67.93x resolution difference** fundamentally changes the performance of th
 
 ### STM32 Schematic
 
-{: refdef}
 > Past This point is a work in progress
-{: .prompt-tip }
 
 ## TODO
 - Wire the STM32G4 in KiCAD
 - Explain and fix issue with temperature varying voltages to unsafe levels
-- add more space saftey features to ensure it would work after launch
-- integrate with battery board
+- Add more space safety features to ensure it would work after launch
+- Integrate with battery board
 - Make PCB Layout
