@@ -5,7 +5,7 @@ categories: [pcb, embedded design]
 tags: [embedded]     # TAG names should always be lowercase
 author: Jaron
 image:
-  path: \assetsweb\mppt\diagram2.png
+  path: /assetsweb/mppt/diagram2.png
   lqip: 
   alt: Logic diagram behind the Max Power Point Tracker
 ---
