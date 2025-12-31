@@ -45,6 +45,8 @@ Now that this is decided, and it is confirmed that the solar array will never ge
 
 The following is a completed table of the specs of the MPPT:
 
+{:refdef: style="text-align: center;"}
+
 | Parameter | Value |
 | :---: | :---: |
 | V_in max | 8.1 V |
@@ -53,6 +55,9 @@ The following is a completed table of the specs of the MPPT:
 | V_out max | 8.4 V |
 | I_out max | 5.4 A |
 | P_out (max) | 26 W |
+
+{: refdef}
+
 
 ### Simulation
 Now that all of these specs have been selected, it is advantageous to run a simulation for the proof of concept. To do this, I used the standard boost converter equations for inductance and capacitance. *Note: a freq of 200 kHz was assumed as that is a typical frequency for MPPTs controlled by STM32s.*
