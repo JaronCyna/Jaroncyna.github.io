@@ -9,6 +9,17 @@ image:
   alt: Logic diagram behind the Max Power Point Tracker
 ---
 
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
 ## Introduction
 As the Electrical Power Systems lead on the satellite branch of the Queen's Space Engineering Team, I am always looking for ways to enhance all aspects of the power distribution for the satellite. One of the most vital metrics on a cubesat is efficiency; energy is not an abundant source for them, so efficiently receiving as much power as possible is vital to have a functioning satellite. Due to this, I was looking into ways to improve efficiency, which is how I found out about Maximum Power Point Tracking (MPPT). This technology is used on variable power sources, such as solar panels, to vary apparent impedance at the source and always output the max power regardless of light intensity.
 
