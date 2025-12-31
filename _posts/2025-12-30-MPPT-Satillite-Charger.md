@@ -2,12 +2,11 @@
 title: Creating a Maximum Power Point Tracking (MPPT) System For Max Charge Efficiency on Satellite
 date: 2025-12-30 
 categories: [pcb, embedded design]
-tags: [embedded]     # TAG names should always be lowercase
+tags: [embedded]
 author: Jaron
 image:
-  path: /assetsweb/mppt/Watchdog.png
-  lqip: 
-  alt: Logic diagram behind the Max Power Point Tracker
+  path: /assetsweb/mppt/Watchdog.png
+  alt: Logic diagram behind the Max Power Point Tracker
 ---
 
 ## Introduction
