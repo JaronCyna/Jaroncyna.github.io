@@ -46,7 +46,7 @@ Now that this is decided, and it is confirmed that the solar array will never ge
 The following is a completed table of the specs of the MPPT:
 
 {:refdef: style="text-align: center;"}
-
+{: refdef}
 | Parameter | Value |
 | :---: | :---: |
 | V_in max | 8.1 V |
@@ -55,8 +55,6 @@ The following is a completed table of the specs of the MPPT:
 | V_out max | 8.4 V |
 | I_out max | 5.4 A |
 | P_out (max) | 26 W |
-
-{: refdef}
 
 
 ### Simulation
