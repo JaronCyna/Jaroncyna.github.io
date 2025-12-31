@@ -1,6 +1,6 @@
 ---
-title: Using Pytorch to identify respiratory problems through chest X-rays
-date: 2025-07-27 
+title: Creating a Maximum Power Point Tracking (MPPT) System For Max Charge Efficiency on Satellite
+date: 2025-12-30 
 categories: [pcb, embedded design]
 tags: [embedded]     # TAG names should always be lowercase
 author: Jaron
