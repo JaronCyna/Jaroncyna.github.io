@@ -4,4 +4,4 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Currently a first-year in Smith Engineering at Queen's University. Expecting to major in Electrical Engineering Physics.
+I am currently a second year Engineering Physcis and Electrical Engineering student at Queen's University. I am the Electrical Power Systems lead on the Satillite Team and the Firmware Lead on the Rover Team. I am interested in embedded and firmware engineering, electronics/PCB design, and FPGA programming/validation.
