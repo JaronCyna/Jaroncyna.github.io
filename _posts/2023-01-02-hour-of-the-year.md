@@ -11,17 +11,17 @@ image:
 ---
 
 ## Introduction
-One day in class, I found myself wondering about the number of hours in a month. This thought lead me down a rabbit hole that went to hours per year and seconds per decade, and then attempting to calculate the number in  my head. This gave me the admittitly usless idea of creating a clock which counts the number of hours that have passed since January 1st at 12 AM.
+One day in class, I found myself wondering about the number of hours in a month. This thought led me down a rabbit hole that went to hours per year and seconds per decade, and then attempting to calculate the number in  my head. This gave me the admittedly useless idea of creating a clock which counts the number of hours that have passed since January 1st at 12 AM.
 
 ## Parts Required
-To make this, I used an Arduino to process the time and send information to each component; a Real Time Clck Module (RTC) to give the current time to the Arduino; a 7-segment display which will display the hour (only 4 digits are necessary as there are 8760 hours per year); and a 74HC595 shift register which uses a Serial IN, Parrallel OUT protocol to tell the display to show a certain value.
+To make this, I used an Arduino to process the time and send information to each component; a Real Time Clock Module (RTC) to give the current time to the Arduino; a 7-segment display which will display the hour (only 4 digits are necessary as there are 8760 hours per year); and a 74HC595 shift register which uses a Serial IN, Parallel OUT protocol to tell the display to show a certain value.
 
 ## Schematics and PCB design
 In order to make an outline in how the wiring would work, I made a schematic in Altium which could be followed when wiring the components together with a breadboard.
 
 ![](/assetsweb/hourofyear/schem.png)
 
-This schematic was then used to create a PCB in altium. In the future, by using this condenced version of the same thing, it would make this project more durable, smaller, and more professional. Despite this, the PCB at hand has some flaws, it is a bit messy, and there is some empty space which could be removed. However in this state, it is still a large improvement over a plain breadboard.
+This schematic was then used to create a PCB in Altium. In the future, by using this condensed version of the same thing, it would make this project more durable, smaller, and more professional. Despite this, the PCB at hand has some flaws, it is a bit messy, and there is some empty space which could be removed. However in this state, it is still a large improvement over a plain breadboard.
 
 ![](/assetsweb/hourofyear/PCB2d.png)
 

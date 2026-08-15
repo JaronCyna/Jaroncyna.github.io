@@ -1,4 +1,8 @@
 {
+  // Disable inline AI / ghost text suggestions
+  "editor.inlineSuggest.enabled": false,
+  "github.copilot.editor.enableAutoCompletions": false,
+
   // Prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,

@@ -21,7 +21,7 @@ image:
 </script>
 
 ## Introduction
-As the Electrical Power Systems lead on the satellite branch of the Queen's Space Engineering Team, I am always looking for ways to enhance all aspects of the power distribution for the satellite. One of the most vital metrics on a cubesat is efficiency; energy is not an abundant source for them, so efficiently receiving as much power as possible is vital to have a functioning satellite. Due to this, I was looking into ways to improve efficiency, which is how I found out about Maximum Power Point Tracking (MPPT). This technology is used on variable power sources, such as solar panels, to vary apparent impedance at the source and always output the max power regardless of light intensity.
+As the Electrical Power Systems lead on the satellite branch of the Queen's Space Engineering Team, I am always looking for ways to enhance all aspects of the power distribution for the satellite. One of the most vital metrics on a CubeSat is efficiency; energy is not an abundant source for them, so efficiently receiving as much power as possible is vital to have a functioning satellite. Due to this, I was looking into ways to improve efficiency, which is how I found out about Maximum Power Point Tracking (MPPT). This technology is used on variable power sources, such as solar panels, to vary apparent impedance at the source and always output the max power regardless of light intensity.
 
 ## Process
 Starting off, it is important to get a high-level overview of how the MPPT will function. At a high level, an MPPT is a DC-DC converter with a duty cycle that varies with the variable source to ensure max power at the current state. So my first draft was essentially this in its most bare-bones state: the solar panels attached to a DC-DC converter of some sort, connecting to a battery, then a buck converter goes from the solar array to a STM32, which then powers the duty cycle of the MPPT.
@@ -174,7 +174,7 @@ The **67.93x resolution difference** fundamentally changes the performance of th
 ### STM32 Schematic
 
 {: refdef}
-> Past This point is a work in progress
+> Past this point is a work in progress
 {: .prompt-tip }
 
 ## TODO
