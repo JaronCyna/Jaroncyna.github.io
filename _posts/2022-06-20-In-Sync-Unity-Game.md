@@ -5,8 +5,7 @@ categories: [Unity]
 tags: [programming]     # TAG names should always be lowercase
 author: Jaron
 image:
-  path: /assetsweb/in-sync/Title .png
-  lqip: 
+  path: /assetsweb/in-sync/Title.png
   alt: Title screen of a game titled "In-Sync"
 ---
 
