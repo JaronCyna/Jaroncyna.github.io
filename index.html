@@ -3,10 +3,6 @@ layout: home
 # Index page
 ---
 
-<!-- ========================================================================== -->
-<!-- HERO & ABOUT SECTION -->
-<!-- ========================================================================== -->
-
 <div class="home-intro mb-5 pb-4 border-bottom">
   
   <!-- 1. Header & Positioning -->
@@ -45,9 +41,9 @@ layout: home
       Current Roles &amp; Highlights
     </h6>
     
-    <div class="experience-list">
+    <div class="d-flex flex-column gap-3">
       
-      <div class="experience-item p-3 mb-3 rounded border">
+      <div class="experience-item">
         <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-1">
           <span class="fw-bold" style="color: var(--heading-color);">Co-Chief Technical Officer</span>
           <span class="small text-muted fst-italic">Queen's Space Engineering Team (CubeSat)</span>
@@ -57,7 +53,7 @@ layout: home
         </p>
       </div>
 
-      <div class="experience-item p-3 mb-3 rounded border">
+      <div class="experience-item">
         <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-1">
           <span class="fw-bold" style="color: var(--heading-color);">Research Assistant (USSRF Grant)</span>
           <span class="small text-muted fst-italic">SNO+ Collaboration (SNOLAB)</span>
@@ -67,7 +63,7 @@ layout: home
         </p>
       </div>
 
-      <div class="experience-item p-3 mb-3 rounded border">
+      <div class="experience-item">
         <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-1">
           <span class="fw-bold" style="color: var(--heading-color);">Former Firmware Lead</span>
           <span class="small text-muted fst-italic">Queen's Space Engineering Team (Rover Branch)</span>
@@ -125,19 +121,10 @@ layout: home
     </div>
   </div>
 
-
   <style>
     .section-subheading {
       letter-spacing: 0.08em;
       font-size: 0.78rem;
-    }
-    .experience-item {
-      background-color: var(--card-bg);
-      border-color: var(--btn-border-color) !important;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .experience-item:hover {
-      border-color: var(--link-color) !important;
     }
     .skill-pill {
       display: inline-block;
