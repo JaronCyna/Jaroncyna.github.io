@@ -3,6 +3,9 @@
   "editor.inlineSuggest.enabled": false,
   "github.copilot.editor.enableAutoCompletions": false,
 
+  // Enable word wrapping in the editor
+  "editor.wordWrap": "on",
+
   // Prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,

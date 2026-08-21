@@ -4,111 +4,157 @@ layout: home
 ---
 
 <!-- ========================================================================== -->
-<!-- HERO & ABOUT SECTION (You can customize any text, bullets, or links below) -->
+<!-- HERO & ABOUT SECTION -->
 <!-- ========================================================================== -->
 
 <div class="home-intro mb-5 pb-4 border-bottom">
   
-  <!-- 1. Headline & Elevator Pitch -->
-  <h1 class="fw-bold mb-2">Hey, I'm Jaron <span class="wave">👋</span></h1>
-  
-  <p class="lead text-muted mb-3" style="font-size: 1.15rem; line-height: 1.6;">
-    I'm a Junior @ Queen's University (<strong>Physics + Electrical Engineering</strong>)
-  </p>
-  
-  <p class="mb-4" style="line-height: 1.6;">
-    Excited by FPGAs, power electronics, and space systems. I love peeling back the layers of complexity, from a systems view of projects, to the nitty-gritty of digital logic design, and then applying it in the real world.
-  </p>
+  <!-- 1. Header & Positioning -->
+  <div class="mb-4 pb-2">
+    <h1 class="fw-bold mb-1" style="letter-spacing: -0.02em;">Jaron Cyna</h1>
+    <p class="text-muted mb-3" style="font-size: 1.05rem; font-weight: 500;">
+      Junior @ Queen's University &bull; Engineering Physics / Electrical Engineering
+    </p>
+    <p class="mb-4" style="font-size: 1.05rem; line-height: 1.65; font-weight: 500; color: var(--text-color);">
+      Turning physics, digital logic, and actuators into real-world hardware. Usually found somewhere between KiCad, an FPGA, and a CubeSat design bay.
+    </p>
 
-  <!-- 2. What I'm Up To (Current Roles / Highlights) -->
-  <div class="mb-4">
-    <h5 class="text-uppercase text-muted small fw-bold mb-3">
-      <i class="fas fa-rocket me-2 text-primary"></i> What I'm Up To
-    </h5>
-    <ul class="mb-0 ps-3" style="line-height: 1.8;">
-      <li>
-        <strong>Co-Chief Technical Officer</strong> — <em>Queen's Space Engineering Team (CubeSat)</em>
-        <div class="text-muted small">Leading the technical direction of a 3U CubeSat, managing 9+ subteams, actively getting the team ready for a 2028-2029 launch with two planned flatsats this year.</div>
-      </li>
-      <li class="mt-2">
-        <strong>Research Assistant</strong> — <em>SNO+ Collaboration (SNOLAB)</em>
-        <div class="text-muted small">Recovered 12+ months of unviable experimental data by developing an automated calibration pipeline that leveraged a Polonium-210 localized standard candle to dynamically correct shifting optical detector properties.</div>
-      </li>
-      <li class="mt-2">
-        <strong>prev. Firmware Lead</strong> — <em>Queen's Mars Rover Team</em>
-        <div class="text-muted small">Developed STM32 &amp; FreeRTOS firmware, motor controller communication over ROS2, controlled 5+ payload motors allowing for a mission score of 88/100 at the 2026 International University Rover Challenge.</div>
-      </li>
-    </ul>
+    <!-- Quick Links & Contact -->
+    <div class="d-flex flex-wrap align-items-center gap-2">
+      <a href="#projects" class="btn btn-primary btn-sm px-3">
+        <i class="fas fa-arrow-down me-1"></i> Jump to Projects
+      </a>
+      <a href="/assets/pdf/Jaron_Cyna_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm px-3">
+        <i class="fas fa-file-pdf me-1"></i> View Resume
+      </a>
+      <a href="https://github.com/jaroncyna" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">
+        <i class="fab fa-github me-1"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/jaron-cyna-67982828a/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">
+        <i class="fab fa-linkedin me-1"></i> LinkedIn
+      </a>
+      <a href="mailto:Jaron@cyna.com" class="btn btn-outline-secondary btn-sm">
+        <i class="fas fa-envelope me-1"></i> Contact
+      </a>
+    </div>
   </div>
 
-  <!-- 3. Technical Arsenal / Skills -->
+  <!-- 2. Current Focus & Key Roles -->
   <div class="mb-4">
-    <h5 class="text-uppercase text-muted small fw-bold mb-3">
-      <i class="fas fa-tools me-2 text-primary"></i> Technical Arsenal
-    </h5>
-    <div class="d-flex flex-wrap">
-      <span class="skill-pill">C / C++</span>
-      <span class="skill-pill">FPGA</span>
-      <span class="skill-pill">Verilog</span>
-      <span class="skill-pill">SystemVerilog</span>
-      <span class="skill-pill">VHDL</span>
-      <span class="skill-pill">SoC</span>
-      <span class="skill-pill">Digital Logic</span>
-      <span class="skill-pill">Python</span>
-      <span class="skill-pill">STM32</span>
-      <span class="skill-pill">FreeRTOS</span>
-      <span class="skill-pill">KiCad / Altium</span>
-      <span class="skill-pill">Power Electronics</span>
-      <span class="skill-pill">CAN / SPI / I2C / UART</span>
-      <span class="skill-pill">Oscilloscopes</span>
-      <span class="skill-pill">Git</span>
-      <span class="skill-pill">Ubuntu</span>
-      <span class="skill-pill">ROS 2</span>
-      <span class="skill-pill">MATLAB / Simulink</span>
+    <h6 class="section-subheading text-uppercase text-muted fw-bold mb-3">
+      Current Roles &amp; Highlights
+    </h6>
+    
+    <div class="experience-list">
+      
+      <div class="experience-item p-3 mb-3 rounded border">
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-1">
+          <span class="fw-bold" style="color: var(--heading-color);">Co-Chief Technical Officer</span>
+          <span class="small text-muted fst-italic">Queen's Space Engineering Team (CubeSat)</span>
+        </div>
+        <p class="small text-muted mb-0 mt-1" style="line-height: 1.55;">
+          Directing the technical architecture of a 3U CubeSat across 9+ subteams. Actively preparing the mission for an orbital launch window with two flatsats planned this year.
+        </p>
+      </div>
+
+      <div class="experience-item p-3 mb-3 rounded border">
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-1">
+          <span class="fw-bold" style="color: var(--heading-color);">Research Assistant (USSRF Grant)</span>
+          <span class="small text-muted fst-italic">SNO+ Collaboration (SNOLAB)</span>
+        </div>
+        <p class="small text-muted mb-0 mt-1" style="line-height: 1.55;">
+          Recovered 5+ months of unviable experimental neutrino detector data by developing an automated calibration pipeline that leveraged a Polonium-210 localized standard candle to dynamically correct shifting optical detector properties.
+        </p>
+      </div>
+
+      <div class="experience-item p-3 mb-3 rounded border">
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-1">
+          <span class="fw-bold" style="color: var(--heading-color);">Former Firmware Lead</span>
+          <span class="small text-muted fst-italic">Queen's Space Engineering Team (Rover Branch)</span>
+        </div>
+        <p class="small text-muted mb-0 mt-1" style="line-height: 1.55;">
+          Engineered STM32 &amp; FreeRTOS firmware and ROS 2 motor controller communication for 5+ payload actuators, securing a mission score of 88/100 at the 2026 International University Rover Challenge.
+        </p>
+      </div>
 
     </div>
   </div>
 
+  <!-- 3. Technical Stack (Categorized) -->
+  <div class="mb-4">
+    <h6 class="section-subheading text-uppercase text-muted fw-bold mb-3">
+      Technical Stack
+    </h6>
+    
+    <div class="d-flex flex-column gap-2">
+      <div class="d-flex flex-column flex-sm-row align-items-sm-baseline">
+        <span class="skill-category-label text-muted small fw-semibold me-3" style="min-width: 155px;">Digital Logic &amp; Compute:</span>
+        <div class="d-flex flex-wrap gap-1 mt-1 mt-sm-0">
+          <span class="skill-pill">FPGA</span>
+          <span class="skill-pill">SystemVerilog</span>
+          <span class="skill-pill">Verilog</span>
+          <span class="skill-pill">VHDL</span>
+          <span class="skill-pill">SoC</span>
+          <span class="skill-pill">Digital Logic</span>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row align-items-sm-baseline">
+        <span class="skill-category-label text-muted small fw-semibold me-3" style="min-width: 155px;">Firmware &amp; Embedded:</span>
+        <div class="d-flex flex-wrap gap-1 mt-1 mt-sm-0">
+          <span class="skill-pill">C / C++</span>
+          <span class="skill-pill">STM32</span>
+          <span class="skill-pill">FreeRTOS</span>
+          <span class="skill-pill">ROS 2</span>
+          <span class="skill-pill">CAN / SPI / I2C / UART</span>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row align-items-sm-baseline">
+        <span class="skill-category-label text-muted small fw-semibold me-3" style="min-width: 155px;">Hardware &amp; Tools:</span>
+        <div class="d-flex flex-wrap gap-1 mt-1 mt-sm-0">
+          <span class="skill-pill">KiCad / Altium</span>
+          <span class="skill-pill">Power Electronics</span>
+          <span class="skill-pill">Oscilloscopes</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">MATLAB / Simulink</span>
+          <span class="skill-pill">Ubuntu / Linux</span>
+          <span class="skill-pill">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <style>
+    .section-subheading {
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+    }
+    .experience-item {
+      background-color: var(--card-bg);
+      border-color: var(--btn-border-color) !important;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .experience-item:hover {
+      border-color: var(--link-color) !important;
+    }
     .skill-pill {
       display: inline-block;
-      border-radius: 6px;
+      border-radius: 4px;
       border: 1px solid var(--btn-border-color);
-      padding: 0.35rem 0.75rem;
+      padding: 0.2rem 0.55rem;
       color: var(--heading-color) !important;
       background-color: var(--card-bg);
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-right: 0.4rem;
-      margin-bottom: 0.5rem;
-      box-shadow: var(--card-shadow);
-      transition: all 0.2s ease-in-out;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.15s ease-in-out;
     }
     .skill-pill:hover {
       border-color: var(--link-color);
       color: var(--link-color) !important;
-      transform: translateY(-1px);
     }
   </style>
-
-  <!-- 4. Action Buttons (Resume, Jump to Projects, GitHub, LinkedIn, Contact) -->
-  <div class="d-flex flex-wrap gap-2 pt-2">
-    <a href="#projects" class="btn btn-primary btn-sm me-2 mb-2">
-      <i class="fas fa-arrow-down me-1"></i> Jump to Projects
-    </a>
-    <a href="/assets/pdf/Jaron_Cyna_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm me-2 mb-2">
-      <i class="fas fa-file-pdf me-1"></i> View Resume
-    </a>
-    <a href="https://github.com/jaroncyna" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm me-2 mb-2">
-      <i class="fab fa-github me-1"></i> GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/jaron-cyna-67982828a/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm me-2 mb-2">
-      <i class="fab fa-linkedin me-1"></i> LinkedIn
-    </a>
-    <a href="mailto:Jaron@cyna.com" class="btn btn-outline-secondary btn-sm mb-2">
-      <i class="fas fa-envelope me-1"></i> Contact
-    </a>
-  </div>
 
 </div>
 
@@ -117,6 +163,5 @@ layout: home
 <!-- ========================================================================== -->
 
 <div id="projects" class="d-flex justify-content-between align-items-center mb-3" style="scroll-margin-top: 4rem;">
-  <h3 class="fw-bold mb-0">📌 Featured Projects &amp; Case Studies</h3>
+  <h3 class="fw-bold mb-0">Featured Projects &amp; Case Studies</h3>
 </div>
-
